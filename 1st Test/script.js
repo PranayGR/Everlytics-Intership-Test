@@ -24,11 +24,14 @@ function startWithSpecialChars(str) {
     }
 }
 
+console.log(document.forms['f1']['pipelineName'].style);
+
 function validateForm(){
     var returnValue = true;
     clearErrors();
     var pipelineName = document.forms['f1']['pipelineName'].value;
     if(pipelineName.length < 5 || containsSpecialChars(pipelineName)){
+        document.forms['f1']['pipelineName'].style.border = '1px solid red';
         setError("pipelineName", "Min. 5 Characters required and No Special characters allowed except -, _ and +");
         returnValue = false;
     }
@@ -39,6 +42,7 @@ function validateForm(){
 
     var projectName = document.forms['f1']['projectName'].value;
     if(projectName.length < 5 || containsSpecialChars(projectName)){
+        document.forms['f1']['projectName'].style.border = '1px solid red';
         setError("projectName", "Min. 5 Characters required and No Special characters allowed except -, _ and +");
         returnValue = false;
     }
