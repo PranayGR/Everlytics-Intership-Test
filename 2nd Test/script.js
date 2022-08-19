@@ -1,23 +1,36 @@
-let json = [["machine_name","machine_id","current,voltage","power_factor","active_power","apparent_power","reactive_power","daily_energy","monthly_energy","yearly_energy","idle_daily","idle_monthly","idle_yearly"], ["Auto Winding Machine", "machine001", 0, 0, 0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0], ["Boiler Machine", "machine004", 0, 0, 0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0]];
+// Steps Taken Before Linking JSON Files
+// 1. Copy JSON from file and created new JSON file.
+// 2. Formatted Data into original JSON format.
+// 3. Changed the type of script to 'module' to access JSON file in JS.
+// 4. Linked the JSON file to JS.
 
-for(let i=1; i<json.length; i++){
-    var table = document.getElementById("mytable");
+// Linked JSON File
+import JSON from './table.json' assert {type: 'json'};
 
-    var row = table.insertRow(i+1);
+// Program to run JSON Data and show in the form of table
+window.addEventListener('load', function() {
+    for (let i = 0; i < JSON.length; i++) {
+        let table = document.getElementById('myTable');
+        let row = table.insertRow(i + 2);
+    
+        let tableData = `
+                <td>${JSON[i].machine_name}</td>
+                <td>${JSON[i].machine_id}</td>
+                <td>${JSON[i].daily_energy}</td>
+                <td>${JSON[i].monthly_energy}</td>
+                <td>${JSON[i].yearly_energy}</td>
+                <td>${JSON[i].active_power}</td>
+                <td>${JSON[i].apparent_power}</td>
+                <td>${JSON[i].reactive_power}</td>
+                <td>${JSON[i].current}</td>
+                <td>${JSON[i].voltage}</td>
+                <td>${JSON[i].power_factor}</td>
+                <td>${JSON[i].idle_daily}</td>
+                <td>${JSON[i].idle_monthly}</td>
+                <td>${JSON[i].idle_yearly}</td>
+            `
+        row.innerHTML = tableData;
+    }
+})
 
-    row.insertCell(0).innerHTML = json[i][0];
-    row.insertCell(1).innerHTML = json[i][1];
-    row.insertCell(2).innerHTML = json[i][2];
-    row.insertCell(3).innerHTML = json[i][3];
-    row.insertCell(4).innerHTML = json[i][4];
-    row.insertCell(5).innerHTML = json[i][5];
-    row.insertCell(6).innerHTML = json[i][6];
-    row.insertCell(7).innerHTML = json[i][7];
-    row.insertCell(8).innerHTML = json[i][8];
-    row.insertCell(9).innerHTML = json[i][9];
-    row.insertCell(10).innerHTML = json[i][10];
-    row.insertCell(11).innerHTML = json[i][11];
-    row.insertCell(12).innerHTML = json[i][12];
-    row.insertCell(13).innerHTML = json[i][13];
- 
-}
+

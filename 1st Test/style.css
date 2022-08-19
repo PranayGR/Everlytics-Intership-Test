@@ -1,151 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body{
-    box-sizing: border-box;
-    margin:0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
     height: 100vh;
-    background-image: linear-gradient(90deg, hsla(221, 59%, 75%, 1) 0%, hsla(216, 40%, 58%, 1) 100%);;
-    /* animation: rotateBackground 10s infinite; */
+    background-image: url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
-@keyframes rotateBackground {
-    0% {background-image: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);}
-    25% {background-image: linear-gradient(180deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);}
-    50% {background-image: linear-gradient(270deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);}
-    75% {background-image: linear-gradient(0deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);}
-    100% {background-image: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);}
-}
-
-.formContainer{
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    height: 50;
-    width: 50;
-    box-shadow: 0 0 10px #ccc;
-    padding: 30px;
+    transform: translate(-50%,-50%);
     background-color: #fff;
-    border-radius: 10px;
-    backdrop-filter: blur(25px);
+    height: 500px;
+    width: 1000px;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
 }
 
-.formDropDown{
+.cloudImage{
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.inputField{
     position: relative;
-    margin-top: 10px;
-    width: 500px;
-    height: 35px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-
+    margin-bottom: 20px;
 }
 
-.formDropDownBtn{
+.formLabel{
     position: absolute;
-    right: 5px;
-    top: 5px;
-    font-size: 18px;
-}
-
-.formDropDownMenu{
-    z-index: 20;
-    position: absolute;
-    top: 100%;
-    box-shadow: 0 1px 1px 1px #ccc;
-    width: inherit;
-    border-radius: 5px;
-    display: none;
-    overflow: hidden;
+    top: -6px;
+    left: 100px;
+    font-size: 11px;
     background-color: #fff;
-    transition: height 300ms ease-in-out;
-    user-select: none;
+    color: #087E8B;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-.formDropDownMenu p{
-    line-height: 0;
-    padding: 20px 20px;
-}
-
-.formDropDownMenu p:hover{
-    cursor: pointer;
-    background-color: #eee;
-    
-}
-
-.formText{
-    font-size: 18px;
-    font-weight: 700;
-    display:block;
-}
-
-.formInputBox{
-    border: 1px solid #ccc;
-    padding: 0;
-    border-radius: 8px;
-    width: 500px;
+.inputBox{
+    width: 300px;
     height: 35px;
-    display:block;
-    margin-top: 10px;
-    font-size: 17px;
-    font-weight: 400;
+    border-radius: 30px;
+    outline: 0;
+    margin-inline: auto;
     padding-inline: 20px;
+    display: block;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    box-shadow: 0;
 }
 
-.formInputBox:focus{
-    outline: none;
+.inputBox:focus{
+    border: 1px solid #087E8B;
 }
 
-.formInputBox::placeholder{
-    color: #bbb;
-    font-size: 14px; 
+.inputBox::placeholder{
+    font-size: 13px;
 }
 
 .formExample{
-    color: #bbb;
-    font-size: 14px;
-}
-
-.errorMessage{
-    color: red;
     font-size: 12px;
-    font-weight: bold;
+    margin-left: 100px;
+    color: grey;
 }
 
-.formMargin{
-    margin-top: 15px;
+.formButton{
+    width: 150px;
+    height: 40px;
+    border:0;
+    box-shadow: none;
+    outline: 0;
+    border-radius: 27px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; 
 }
 
 .createButton{
-    outline: none;
-    border: 0;
-    box-shadow: 0;
-    padding: 15px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: goldenrod;
-    margin-top: 20px;
-    margin-left: 40px;
-    width: 200px;
+    background-color: #83C1A6;
+    color:#000;
 }
 
 .createButton:hover{
-    opacity: 0.8;
-    cursor: pointer;
+    outline: 3px solid #83C1A6;
+    background-color: #fff;
 }
 
-.resetButton{
-    outline: none;
-    border: 0;
-    box-shadow: 0;
-    padding: 15px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: goldenrod;
-    margin-top: 20px;
-    margin-left: 50px;
-    width: 200px;
+.cancelButton{
+    background-color: #FF5A5F;
+    color:#000;
+    margin-left: 20px; 
+}
+
+.cancelButton:hover{
+    outline: 3px solid #FF5A5F;
+    background-color: #fff;
+}
+
+.errorMsg{
+    font-size: 12px;
+    color: #FF5A5F;
+    margin-inline: 90px;
+    display: block;
+    height: 5px;
+}
+
+@media screen and (max-width: 1068px){
+    .container{
+        width: auto;
+        grid-template-columns: 1fr;
+
+    }
+    .ImgContainer{
+        display: none;
+    }
+    .formLabel{
+        left: 25px;
+    }
+    .formExample{
+        margin-left: 25px;
+    }
 }

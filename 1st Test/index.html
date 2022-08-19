@@ -6,57 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Everlytics Form</title>
-
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" type="text/javascript" async></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="text/javascript" defer></script>
 </head>
 
 <body>
-    <div class="formContainer">
-        <form name="f1" id="mainForm" onsubmit="return validateForm();">
-            <div>
-                <span class="formText">Select Your Source *</span>
-                <input class="formInputBox" type="text" disabled value="Google Cloud Service" />
-
-                <div id="pipelineName" class="formMargin">
-                    <span class="formText">Name for pipeline *</span>
-                    <input class="formInputBox" name="pipelineName" type="text"
-                        placeholder="e.g., cust_shop_energy_gkateway001" required/>
-                    <span class="errorMessage"></span>
+    <div class="container">
+        <div class="ImgContainer" style="height:100%; position: relative;">
+            <img src="images/cloud.jpg" alt="Cloud Services" class="cloudImage" />
+        </div>
+        <div>
+            <form name="myForm" id="myForm" onsubmit="return validateForm();">
+                <div class="inputField">
+                    <label class="formLabel">Select Your Source *</label>
+                    <input type="text" name="source" value="Google Cloud Services" class="inputBox" disabled/>
                 </div>
-
-                <div id="projectName" class="formMargin">
-                    <span class="formText">GCS Project Name *</span>
-                    <input class="formInputBox" name="projectName" type="text" placeholder="project-id" required/>
-                    <span class="errorMessage"></span>
+                <div class="inputField" id="pipelineName">
+                    <label class="formLabel">Provide a name for pipeline *</label>
+                    <input type="text" name="pipelineName" placeholder="e.g., cust_shop_energy_gkateway001" class="inputBox"/>
+                    <span class="errorMsg"></span>
                 </div>
-
-                <div id="bucketName" class="formMargin">
-                    <span class="formText">GCS Bucket Name *</span>
-                    <input class="formInputBox" type="text" name="bucketName" placeholder="gs://your-bucket" required/>
-                    <span class="errorMessage"></span>
+                <div class="inputField" id="projectName">
+                    <label class="formLabel">GCS Project Name *</label>
+                    <input type="text" name="projectName" placeholder="project-id" class="inputBox"/>
+                    <span class="errorMsg"></span>
                 </div>
-
-                <div id="inputFile" class="formMargin">
-                    <span class="formText">Input Cloud Storage File(s) *</span>
-                    <input class="formInputBox" type="text" name="inputFile" placeholder="GCS location of your files" required/>
+                <div class="inputField" id="bucketName">
+                    <label class="formLabel">GCS Bucket Name *</label>
+                    <input type="text" name="bucketName" placeholder="gs://your-bucket" class="inputBox"/>
+                    <span class="errorMsg"></span>
+                </div>
+                <div class="inputField" id="cloudFile">
+                    <label class="formLabel">Input Cloud Storage File(s) *</label>
+                    <input type="text" name="cloudFile" placeholder="GCS location of your files" class="inputBox"/>
                     <span class="formExample">Example: gs://your-bucket/your-files/01.csv</span>
+                    <span class="errorMsg"></span>
+                </div>
+                <div class="inputField" id="credentials">
+                    <label class="formLabel">GCS Credentials *</label>
+                    <input type="text" name="credentials" id="credentials" class="inputBox"/>
+                    <span class="errorMsg"></span>
+                </div>
+                <div class="inputField" id="runtime">
+                    <label class="formLabel">Run Every *</label>
+                    <input type="number" name="runtime" placeholder="(in minutes)" class="inputBox"/>
+                    <span class="errorMsg"></span>
                 </div>
 
-                <div id="credentials" class="formMargin">
-                    <span class="formText">GCS Credentials *</span>
-                    <input class="formInputBox" type="text" name="credentials" required/>
-                    <span class="errorMessage"></span>
-                </div>
-                <div id="runTime" class="formMargin">
-                    <span class="formText">Run Every *</span>
-                    <input class="formInputBox" type="number" name="runTime" placeholder="(in minutes)" required/>
-                </div>
-                <input type="submit" name="Submit" value="Create" class="createButton"/>
+                <div style="text-align:center;">
+                    <input type="submit" name="Submit" value="Create" class="formButton createButton"/>
 
-                <input type="reset" name="Reset" value="Cancel" class="resetButton"/>
-            </div>
-        </form>
+                    <input type="reset" name="Reset" value="Cancel" class="formButton cancelButton" onclick="return confirm('Are you sure you want reset the form?');"/>
+                </div>
+                
+            </form>
+        </div>
     </div>
 </body>
 
